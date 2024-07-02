@@ -2,22 +2,22 @@
 
 namespace App\Models;
 
-use App\Models\ApprovalStages;
+use App\Models\Approver;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Approver extends Model
+class ApprovalStages extends Model
 {
     use HasFactory;
 
     protected $connection = 'mysql';
 
-    protected $table = 'approvers';
+    protected $table = 'approval_stages';
 
     protected $guarded = ['id'];
 
-    public function approveStages()
+    public function approver()
     {
-        return $this->hasMany(ApprovalStages::class, 'approver_id');
+        return $this->belongsTo(Approver::class, 'approver_id', 'id');
     }
 }
