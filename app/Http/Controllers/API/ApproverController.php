@@ -45,7 +45,7 @@ class ApproverController extends Controller
             return new ApproverResource($store);
 
         } catch (\Throwable $th) {
-            throw $th;
+            return response()->json(500);
         }
     }
 }

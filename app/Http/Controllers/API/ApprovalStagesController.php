@@ -24,7 +24,19 @@ class ApprovalStagesController extends Controller
             return new ApprovalStagesResource($store);
 
         } catch (\Throwable $th) {
-            throw $th;
+            return response()->json(500);
+        }
+    }
+
+    public function update(ApprovalStagesRequest $request,int $id)
+    {
+        try {
+            $update = $this->approval->update($request->approve(), $id);
+
+            return new ApprovalStagesResource($update);
+
+        } catch (\Throwable $th) {
+            return response()->json(500);
         }
     }
 }
