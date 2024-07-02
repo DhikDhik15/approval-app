@@ -15,7 +15,7 @@ class CreateExpensesTable extends Migration
     {
         Schema::create('expenses', function (Blueprint $table) {
             $table->id();
-            $table->float('amount',8,2)->nullable();
+            $table->integer('amount')->nullable();
             $table->unsignedBigInteger('status_id')->nullable();
             $table->timestamps();
         });
