@@ -83,6 +83,14 @@
                     "Approval Stage"
                 ],
                 "consumes": "application/json",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "type":"number",
+                        "required": "true"
+                    }
+                ],
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -137,6 +145,72 @@
                     }
                 }
             }
+        },
+
+        "/expense/{id}/approve": {
+            "put": {
+                "tags": [
+                    "Expense"
+                ],
+                "consumes": "application/json",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "type":"number",
+                        "required": "true"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "approver_id": {
+                                        "type": "number"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "Failed !!"
+                    }
+                }
+            }
+        },
+
+        "/expense/{id}": {
+            "get": {
+                "tags": [
+                    "Expense"
+                ],
+                "consumes": "application/json",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "type":"number",
+                        "required": "true"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "Failed !!"
+                    }
+                }
+            }
         }
+
+
     }
 }
