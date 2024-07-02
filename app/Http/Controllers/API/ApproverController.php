@@ -14,18 +14,10 @@ use App\Repositories\ApproverRepository;
 *       tags={"Approver"},
 *       @OA\Response(
 *           response="200",
-*           description="Ok",
-*           @OA\JsonContent
-*           (example={
-*               "success": true,
-*               "message": "Berhasil mengambil Kategori Berita",
-*               "data": {
-*                   {
-*                   "id": "1",
-*                   "nama_kategori": "Pendidikan",
-*                  }
-*              }
-*          }),
+*           @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/StoreProjectRequest")
+     *      ),,
 *      ),
 *  )
 */
