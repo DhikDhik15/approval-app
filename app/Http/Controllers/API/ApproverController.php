@@ -8,19 +8,6 @@ use App\Http\Requests\ApproverRequest;
 use App\Http\Resources\ApproverResource;
 use App\Repositories\ApproverRepository;
 
-/**
-*    @OA\Post(
-*       path="/approvers",
-*       tags={"Approver"},
-*       @OA\Response(
-*           response="200",
-*           @OA\RequestBody(
-     *          required=true,
-     *          @OA\JsonContent(ref="#/components/schemas/StoreProjectRequest")
-     *      ),,
-*      ),
-*  )
-*/
 class ApproverController extends Controller
 {
     // declare constructor parameters
