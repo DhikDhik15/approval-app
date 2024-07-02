@@ -27,4 +27,40 @@ class ExpenseRepository
 
         return $find;
     }
+
+    public function show(int $id)
+    {
+        $find = Expense::find($id);
+
+        $response = [
+            'id' => $find->id,
+            'amount' => $find->amount,
+            'status' => [
+                'id' => $find->status->id,
+                'name' => $find->status->name
+            ],
+            'approval' => $this->dataApproval($find)
+        ];
+
+        return $response;
+    }
+
+    private function dataApproval($find)
+    {
+        $result = [];
+        foreach ($find->approval as $approval) {
+            $result[] = [
+                'id' => $approval->id,
+                'approver' => [
+                    'id' => $approval->approver->id,
+                    'name' => $approval->approver->name
+                ],
+                'status' => [
+                    'id' => $approval->status->id,
+                    'name' => $approval->status->name
+                ]
+            ];
+        }
+        return $result;
+    }
 }

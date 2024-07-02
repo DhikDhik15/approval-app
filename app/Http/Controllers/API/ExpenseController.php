@@ -39,4 +39,15 @@ class ExpenseController extends Controller
             return response()->json(500);
         }
     }
+
+    public function show(int $id)
+    {
+        try {
+            $get = $this->expense->show($id);
+
+            return new ExpenseResource($get);
+        } catch (\Throwable $th) {
+            return response()->json(500);
+        }
+    }
 }

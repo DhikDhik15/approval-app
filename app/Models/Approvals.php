@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Approver;
+use App\Models\Statuses;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Approvals extends Model
 {
@@ -14,4 +16,14 @@ class Approvals extends Model
     protected $table = 'approvals';
 
     protected $guarded = ['id'];
+
+    public function status()
+    {
+        return $this->hasOne(Statuses::class, 'id', 'status_id');
+    }
+
+    public function approver()
+    {
+        return $this->hasOne(Approver::class, 'id', 'approver_id');
+    }
 }

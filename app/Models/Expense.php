@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Statuses;
 use App\Models\Approvals;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -19,5 +20,10 @@ class Expense extends Model
     public function approval()
     {
         return $this->hasMany(Approvals::class, 'expense_id');
+    }
+
+    public function status()
+    {
+        return $this->hasOne(Statuses::class, 'id', 'status_id');
     }
 }
