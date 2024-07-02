@@ -27,4 +27,16 @@ class ExpenseController extends Controller
             return response()->json(500);
         }
     }
+
+    public function approve(Request $request, $id)
+    {
+        try {
+            $approve = $this->expense->approve($request->all(),config('enums.status.DISETUJUI'), $id);
+
+            return new ExpenseResource($approve);
+
+        } catch (\Throwable $th) {
+            return response()->json(500);
+        }
+    }
 }

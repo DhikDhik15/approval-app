@@ -2,13 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Approvals;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Expense extends Model
 {
-    use HasFactory;
-
     use HasFactory;
 
     protected $connection = 'mysql';
@@ -16,4 +15,9 @@ class Expense extends Model
     protected $table = 'expenses';
 
     protected $guarded = ['id'];
+
+    public function approval()
+    {
+        return $this->hasMany(Approvals::class, 'expense_id');
+    }
 }
