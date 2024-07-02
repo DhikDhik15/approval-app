@@ -31,6 +31,7 @@ use App\Repositories\ApproverRepository;
 */
 class ApproverController extends Controller
 {
+    // declare constructor parameters
     protected $approver;
 
     public function __construct(ApproverRepository $approver) {
@@ -40,9 +41,9 @@ class ApproverController extends Controller
     public function store(ApproverRequest $request)
     {
         try {
-            $store = $this->approver->store($request->approve());
+            $store = $this->approver->store($request->approve()); //send data to repository
 
-            return new ApproverResource($store);
+            return new ApproverResource($store); //return response from store
 
         } catch (\Throwable $th) {
             return response()->json(500);

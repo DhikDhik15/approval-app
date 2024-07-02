@@ -10,6 +10,7 @@ use App\Repositories\ApprovalStagesRepository;
 
 class ApprovalStagesController extends Controller
 {
+    // declare constructor parameters
     protected $approval;
 
     public function __construct(ApprovalStagesRepository $approval) {
@@ -19,9 +20,9 @@ class ApprovalStagesController extends Controller
     public function store(ApprovalStagesRequest $request)
     {
         try {
-            $store = $this->approval->store($request->approve());
+            $store = $this->approval->store($request->approve()); //send data to repository
 
-            return new ApprovalStagesResource($store);
+            return new ApprovalStagesResource($store); //return response from store
 
         } catch (\Throwable $th) {
             return response()->json(500);
@@ -31,7 +32,7 @@ class ApprovalStagesController extends Controller
     public function update(ApprovalStagesRequest $request,int $id)
     {
         try {
-            $update = $this->approval->update($request->approve(), $id);
+            $update = $this->approval->update($request->approve(), $id); //send data to repository
 
             return new ApprovalStagesResource($update);
 

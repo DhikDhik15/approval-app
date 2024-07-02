@@ -19,11 +19,11 @@ class Approvals extends Model
 
     public function status()
     {
-        return $this->hasOne(Statuses::class, 'id', 'status_id');
+        return $this->hasOne(Statuses::class, 'id', 'status_id'); //relation to status
     }
 
     public function approver()
     {
-        return $this->hasOne(Approver::class, 'id', 'approver_id');
+        return $this->hasOne(Approver::class, 'id', 'approver_id'); //relation to approver
     }
 }

@@ -18,6 +18,6 @@ class ApprovalStages extends Model
 
     public function approver()
     {
-        return $this->belongsTo(Approver::class, 'approver_id', 'id');
+        return $this->belongsTo(Approver::class, 'approver_id', 'id'); //relation to approver
     }
 }

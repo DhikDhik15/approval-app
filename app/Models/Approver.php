@@ -18,6 +18,6 @@ class Approver extends Model
 
     public function approveStages()
     {
-        return $this->hasMany(ApprovalStages::class, 'approver_id');
+        return $this->hasMany(ApprovalStages::class, 'approver_id'); //relation to approval_stages
     }
 }
