@@ -9,9 +9,6 @@
 
 ## About Project
 
-Github : https://github.com/DhikDhik15/approval-app/tree/master,
-Branch : Master
-
 - DB NAME: approval_app,
 - composer update
 - php artisan db:seed --class=StatusSeeder
